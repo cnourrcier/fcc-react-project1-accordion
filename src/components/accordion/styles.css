@@ -1,0 +1,31 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.wrapper button {
+    background: rgb(55, 183, 234);
+    color: white;
+    margin-bottom: 20px;
+    border-radius: 2px;
+}
+
+.items {
+    width: 600px;
+}
+
+.dataItem {
+    background: rgb(55, 183, 234);
+    color: white;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+}
