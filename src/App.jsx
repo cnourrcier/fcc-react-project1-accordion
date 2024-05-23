@@ -1,6 +1,5 @@
 
-import './App.css'
-import Accordion from './components/accordion'
+import Accordion from './components/accordion';
 
 function App() {
 
@@ -12,4 +11,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

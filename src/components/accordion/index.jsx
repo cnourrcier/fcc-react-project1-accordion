@@ -11,6 +11,17 @@ const Accordion = () => {
         setSelected(id === selected ? null : id);
     }
 
+    function handleEnableMultiple() {
+        setMultipleSelectedEnabled(!multipleSelectedEnabled)
+        if (!multipleSelectedEnabled) {
+            setMultiple([]);
+        }
+        if (selected) {
+            setMultiple([selected]);
+            setSelected(null)
+        }
+    }
+
     function handleMultiple(id) {
         let cpyMultiple = [...multiple];
         const index = cpyMultiple.indexOf(id);
@@ -19,27 +30,29 @@ const Accordion = () => {
         setMultiple(cpyMultiple);
     }
 
-    console.log(selected, multiple);
-
     return (
         <div className='wrapper'>
-            <button onClick={() => setMultipleSelectedEnabled(!multipleSelectedEnabled)} >Enable Multiple Selections</button>
+            <button onClick={() => handleEnableMultiple()} >
+                Enable {multipleSelectedEnabled ? 'Single Selection' : 'Multiple Selections'}
+            </button>
+            <h2>{multipleSelectedEnabled ? 'Multiple Selection' : 'Single Selection'} Mode</h2>
             <div className='items'>
                 {
                     data.map((dataItem) => (
-                        <>
-                            <div onClick={
+                        <div
+                            key={dataItem.id}
+                            className='dataItem'
+                            onClick={
                                 multipleSelectedEnabled
                                     ? () => handleMultiple(dataItem.id)
                                     : () => handleSingle(dataItem.id)
                             }
-                                className='dataItem'>
-                                <div className='question'>{dataItem.question}
-                                    <span>+</span>
-                                </div>
-                                {selected === dataItem.id || multiple.indexOf(dataItem.id) !== -1 ? <div>{dataItem.answer}</div> : null}
+                        >
+                            <div className='question'>{dataItem.question}
+                                <span>+</span>
                             </div>
-                        </>
+                            {selected === dataItem.id || multiple.indexOf(dataItem.id) !== -1 ? <div className='answer'>{dataItem.answer}</div> : null}
+                        </div>
                     ))
                 }
             </div>
