@@ -17,7 +17,7 @@ const data = [
     {
         id: '4',
         question: 'Can I create an accordion component with a different framework?',
-        answer: 'Yes of cuorse, it is very possible to create an accordion component with another framework.'
+        answer: 'Yes of course, it is very possible to create an accordion component with another framework.'
     },
 ];
 
